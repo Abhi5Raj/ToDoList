@@ -2,6 +2,15 @@
   text-align: center;
 }
 
+h1 {
+  font-size: 40px;
+  color: darkred;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -35,4 +44,49 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+form{
+  width: 1170px;
+  display: flex;
+  margin: auto;
+  gap: 20px;
+
+}
+form input{
+  flex-basis: 80%;
+}
+form button{
+  flex-basis: 20%;
+}
+.outerDiv{
+  width: 1170px;
+  margin: auto;
+}
+.outerDiv ul {
+  margin: 0%;
+  list-style: none;
+  padding: 0%;
+  margin-top: 50px;
+}
+.outerDiv ul li{
+  padding: 10px;
+  background-color: black;
+  color: aliceblue;
+  text-align: left;
+  position: relative;
+  font-size: 25px;
+  margin-bottom: 20px;
+
+}
+.outerDiv ul li span{
+  right: 20px;
+  position: absolute;
+  cursor: pointer;
+}
+
+.completetodo{
+  text-decoration: line-through;
+  color: red;
+  background-color: rgb(66, 61, 55);
 }
