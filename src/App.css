@@ -1,13 +1,9 @@
 .App {
   text-align: center;
+  
 }
 
-h1 {
-  font-size: 40px;
-  color: darkred;
-  margin-bottom: 20px;
-  text-align: center;
-}
+
 
 
 
@@ -46,19 +42,8 @@ h1 {
   }
 }
 
-form{
-  width: 1170px;
-  display: flex;
-  margin: auto;
-  gap: 20px;
 
-}
-form input{
-  flex-basis: 80%;
-}
-form button{
-  flex-basis: 20%;
-}
+
 .outerDiv{
   width: 1170px;
   margin: auto;
