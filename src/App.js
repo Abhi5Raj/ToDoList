@@ -97,7 +97,7 @@ function ToDoListItems({ value, indexNumber, todolist, settodolist }) {
     >
       {indexNumber + 1}. {value}
       <span onClick={deleteRow} className="absolute right-4 top-2 text-xl">
-        &times;
+        🗑️
       </span>
     </motion.li>
     
