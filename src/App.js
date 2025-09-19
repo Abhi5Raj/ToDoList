@@ -5,21 +5,26 @@ import { ToastContainer, toast } from "react-toastify";
 
 function App() {
   let [todolist , settodolist]=useState([])
+  let [toname, setToname] = useState("");
 
-  let saveToDoList=(event)=>{ 
-    let toname=event.target.toname.value; //stores the value of the input
-    if(!todolist.includes(toname)){
-      let finalDolist=[...todolist,toname]
-      settodolist(finalDolist)
-      toast.success("✅ New task added!");
 
-    }
-    else{
-      toast.error("⚠️ ToDo Name Already Exists");
-    }
-    
-    event.preventDefault();
+  let saveToDoList = (event) => {
+  event.preventDefault(); 
+
+  if (toname.trim() === "") {
+    toast.error("⚠️ Task cannot be empty!");
+    return;
   }
+
+  if (!todolist.includes(toname)) {
+    let finalDolist = [...todolist, toname];
+    settodolist(finalDolist);
+    toast.success("✅ New task added!");
+    setToname(""); // <-- clears input box
+  } else {
+    toast.error("⚠️ ToDo Name Already Exists");
+  }
+};
   let list=todolist.map((value,index)=>{
     return(
       <ToDoListItems value={value} key={index} 
@@ -36,15 +41,15 @@ function App() {
       ToDo List 📝
     </h1>
     <form onSubmit={saveToDoList} className="flex gap-3 mb-6">
-      <input className="flex-1 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500" type='text' name='toname'/> 
-      <button className="px-6 py-2 bg-gradient-to-r from-purple-500 to-indigo-600 text-white rounded-lg shadow hover:opacity-90 transition">Submit</button>
+      <input className="flex-1 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500" type='text' name='toname' value={toname} onChange={(e) => setToname(e.target.value)}/> 
+      <button type='submit' className="px-6 py-2 bg-gradient-to-r from-purple-500 to-indigo-600 text-white rounded-lg shadow hover:opacity-90 transition">Submit</button>
     </form>
 
    
 
     <div className="container mx-auto px-4">
   {todolist.length === 0 ? (
-    <p className="text-text-4xl font-extrabold bg-gradient-to-r from-red-500 via-yellow-500 via-green-500 via-blue-500 to-purple-600 bg-clip-text text-transparent italic text-center mt-6">
+    <p className="text-xl font-extrabold bg-gradient-to-r from-red-500 via-yellow-500 via-green-500 via-blue-500 to-purple-600 bg-clip-text text-transparent italic text-center mt-6">
       ✨ No tasks yet, add one!
     </p>
   ) : (
